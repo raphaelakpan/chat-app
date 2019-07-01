@@ -16,3 +16,12 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
+
+// remove flash alert messages
+$(function () {
+  setTimeout(function () {
+    var alert = $('.flash.alert')
+    if (alert) alert.alert('close')
+  }, 2000)
+})
+

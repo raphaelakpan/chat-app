@@ -1,0 +1,11 @@
+<% content_for :chats do %>
+  <div class="col">
+    <h2> Add a new room </h2>
+    <%= simple_form_for @room do |form| %>
+      <%= form.input :name %>
+      <%= form.submit "Save", class: 'btn btn-success' %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= render  template: "rooms/rooms" %>
