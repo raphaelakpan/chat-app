@@ -1,16 +1,15 @@
-
 <% content_for :chats do %>
   <div class="col">
     <h1 class="mb-3 text-secondary"> #<%= @room.name %> </h1>
 
-    <div class="chat border rounded bg-light p-3">
+    <div class="chat border rounded bg-light p-3" data-channel-subscribe="room" data-room-id="<%= @room.id %>">
       <% if @messages.empty? %>
-        <p class="text-center"> Start chatting...🤠 </p>
+        <p class="text-center no-messages"> Start chatting...🤠 </p>
       <% end %>
       <% @messages.each do |message| %>
         <div class="row no-gutters mb-3">
           <div class="col-1 text-center">
-            <img src="<%= gravatar_url(message.user) %>" class="rounded-circle w-100" alt="">
+            <img src="<%= message.user.gravatar_url %>" class="rounded-circle w-100" alt="">
           </div>
 
           <div class="col rounded bg-white border ml-3 px-3 py-2 text-primary">
@@ -32,3 +31,20 @@
 <% end %>
 
 <%= render  template: "rooms/rooms" %>
+
+<div class="d-none" data-role="message-template">
+  <div class="row no-gutters mb-3">
+    <div class="col-1 text-center">
+      <img src="" class="rounded-circle w-100" alt="" data-role="user-avatar">
+    </div>
+
+    <div class="col rounded bg-white border ml-3 px-3 py-2 text-primary">
+      <small class="text-secondary">
+        <strong data-role="user-username"></strong> • <span data-role="message-date"></span>
+      </small>
+      <div class="message-content">
+        <p class="mb-1" data-role="message-text"></p>
+      </div>
+    </div>
+  </div>
+</div>

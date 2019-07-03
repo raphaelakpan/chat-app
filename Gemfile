@@ -15,6 +15,7 @@ gem 'pg'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'simple_form'
+gem 'redis'
 
 group :development, :test do
   gem 'pry', platforms: [:mri, :mingw, :x64_mingw]
